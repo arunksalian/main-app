@@ -11,6 +11,7 @@ services:
    - ./nginx/conf.d:/etc/nginx/conf.d
    depends_on:
    - app
+   - account-ms
 
   app:
     restart: always
