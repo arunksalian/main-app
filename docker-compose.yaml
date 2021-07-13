@@ -26,11 +26,14 @@ services:
   
   account-ms:
     container_name: account-ms
+    image: arunksalian/account-ms:0.0.6-SNAPSHOT
     restart: always
-    build: ./account-ms
-    working_dir: /account-ms
-    volumes:
-      - ./app:/app
     expose:
         - "8090"
     command: mvn clean spring-boot:run
+  redis-host:
+    container_name: redis-host
+    image: redis:6.2.4
+    restart: always
+  
+
