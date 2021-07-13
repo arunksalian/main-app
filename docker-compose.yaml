@@ -14,6 +14,7 @@ services:
    - account-ms
 
   app:
+    container_name: app
     restart: always
     build: ./app
     working_dir: /app
@@ -21,4 +22,15 @@ services:
       - ./app:/app
     expose:
       - "8080"
+    command: mvn clean spring-boot:run
+  
+  account-ms:
+    container_name: account-ms
+    restart: always
+    build: ./account-ms
+    working_dir: /account-ms
+    volumes:
+      - ./app:/app
+    expose:
+        - "8090"
     command: mvn clean spring-boot:run
